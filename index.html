@@ -1,0 +1,212 @@
+<!--
+Highly polished, responsive single-file web portfolio
+Instructions:
+1. Save this file as `index.html` in a folder.
+2. Create an `assets/` folder and place your profile image as `assets/profile.jpg` and project images as `assets/proj1.jpg`, `assets/proj2.jpg`, etc.
+3. Replace text (name, email, phone, project links) with your own information.
+4. To host: upload the folder to Netlify, Vercel, or GitHub Pages.
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mubashar Abbasi — Flutter Developer</title>
+  <meta name="description" content="Portfolio of Mubashar Abbasi — Flutter Developer. UI, APIs, Firebase, Maps.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724; /* dark */
+      --card:#0b1220;
+      --accent:#06b6d4;
+      --muted:#94a3b8;
+      --glass: rgba(255,255,255,0.04);
+      --max-width:1100px;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box;font-family:Inter,system-ui,Segoe UI,Arial;margin:0;padding:0}
+    html,body{height:100%;background:linear-gradient(180deg,#071022 0%,#081123 60%);color:#e6eef6}
+    .container{max-width:var(--max-width);margin:32px auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#60a5fa);display:flex;align-items:center;justify-content:center;font-weight:800;color:#001}
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:500}
+    nav a:hover{color:var(--accent)}
+
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:30px;align-items:center;margin-top:28px}
+    .hero-card{background:var(--card);padding:28px;border-radius:14px;box-shadow:0 6px 30px rgba(2,6,23,0.6)}
+
+    .intro h1{font-size:28px;margin-bottom:8px}
+    .intro p{color:var(--muted);line-height:1.6;margin-bottom:16px}
+    .cta{display:flex;gap:12px}
+    .btn{padding:10px 14px;border-radius:10px;border:0;font-weight:600;cursor:pointer}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),#7c3aed);color:#001}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+    .profile{display:flex;flex-direction:column;align-items:center;text-align:center}
+    .avatar{width:160px;height:160px;border-radius:50%;background:linear-gradient(135deg,#334155,#0ea5a0);overflow:hidden;box-shadow:0 10px 30px rgba(2,6,23,0.6);border:4px solid rgba(255,255,255,0.03)}
+    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+    .profile h3{margin-top:14px}
+    .profile p{color:var(--muted);font-size:14px}
+
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+    .skill{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:12px;border-radius:10px;text-align:center}
+    .skill h4{margin-bottom:6px}
+    .projects{margin-top:26px}
+
+    .project-list{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .project{background:var(--glass);padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .project img{width:100%;height:140px;object-fit:cover;border-radius:8px;margin-bottom:10px}
+    .project h5{font-size:16px}
+    .project p{color:var(--muted);font-size:13px}
+
+    footer{margin-top:34px;padding:18px;border-radius:12px;background:transparent;border:1px solid rgba(255,255,255,0.02);display:flex;justify-content:space-between;align-items:center}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .project-list{grid-template-columns:repeat(2,1fr)}
+      .cards{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:520px){
+      nav{display:none}
+      .project-list{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr}
+      .hero{gap:18px}
+      .avatar{width:120px;height:120px}
+    }
+
+    .tag{display:inline-block;background:rgba(255,255,255,0.03);padding:6px 10px;border-radius:8px;font-size:13px;color:var(--muted);margin-right:8px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">MA</div>
+        <div>
+          <div style="font-weight:700">Mubashar Abbasi</div>
+          <div style="font-size:12px;color:var(--muted)">Mobile App Developer • Flutter</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-card intro">
+        <h1>Hi, I’m Mubashar — Flutter Developer</h1>
+        <p>I build beautiful and responsive mobile applications using Flutter. I specialize in UI, REST APIs, Firebase integration and Google Maps.</p>
+
+        <!-- <div class="cta">
+          <a class="btn btn-primary" href="mailto:mubasharabbasi577@gmail.com">Hire / Contact</a>
+          
+        </div> -->
+
+        <div style="margin-top:18px">
+          <div class="tag">Flutter</div>
+          <div class="tag">Dart</div>
+          <div class="tag">Firebase</div>
+          <div class="tag">REST API</div>
+        </div>
+      </div>
+
+      <aside class="hero-card profile">
+        <div class="avatar"><img src="assets/profile.jpg" alt="Profile"></div>
+        <h3>Mubashar Abbasi</h3>
+        <p>Azad Kashmir, Pakistan • mubasharabbasi577@gmail.com • 03109003027</p>
+
+        <div class="cards" style="margin-top:14px">
+          <div class="skill"><h4>Experience</h4><p style="color:var(--muted);font-size:13px">Hybrid Mobile App Development course projects</p></div>
+          <div class="skill"><h4>Education</h4><p style="color:var(--muted);font-size:13px">BS Computer Science (In Progress)</p></div>
+          <div class="skill"><h4>Availability</h4><p style="color:var(--muted);font-size:13px">Open for Internship / Freelance</p></div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="projects" class="projects">
+      <h2 style="font-size:20px;margin-bottom:10px">Selected Projects</h2>
+      <div class="project-list">
+        <div class="project">
+          <img src="assets/proj1..png" alt="Project 1">
+          <h5>Portfolio App</h5>
+          <p>Personal portfolio app built with Flutter showcasing UI, navigation, and responsive design.</p>
+        </div>
+        <div class="project">
+          <img src="assets/proj2.png" alt="Project 2">
+          <h5>Firebase CRUD</h5>
+          <p>Authentication and Firestore CRUD (create, read, update, delete) operations with user profiles.</p>
+        </div>
+        <div class="project">
+          <img src="assets/proj3.png" alt="Project 3">
+          <h5>API ListView</h5>
+          <p>Fetches and displays live data from REST APIs using FutureBuilder and ListView.builder.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" style="margin-top:26px">
+      <h2 style="font-size:20px;margin-bottom:10px">Skills & Tools</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <div class="tag">Flutter</div>
+        <div class="tag">Dart</div>
+        <div class="tag">Firebase</div>
+        <div class="tag">REST APIs</div>
+        <div class="tag">Google Maps</div>
+        <div class="tag">Git</div>
+        <div class="tag">UI/UX</div>
+      </div>
+    </section>
+
+    <section id="contact" style="margin-top:26px">
+      <h2 style="font-size:20px;margin-bottom:10px">Contact</h2>
+      <div style="display:flex;gap:20px;flex-wrap:wrap">
+        <div style="flex:1;min-width:260px;background:var(--card);padding:16px;border-radius:12px">
+          <h4>Get in touch</h4>
+          <p style="color:var(--muted)">Email me at <a href="mailto:mubasharabbasi577@gmail.com">mubasharabbasi577@gmail.com</a> or call <a href="tel:03109003027">03109003027</a></p>
+
+          
+        </div>
+
+        <!-- <div style="flex:0.6;min-width:260px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:16px;border-radius:12px">
+          <h4>Links</h4>
+<p style="color:var(--muted)">Add your LinkedIn link here.</p>
+<div style="display:flex;gap:10px;margin-top:8px">
+  <a class="btn btn-ghost" href="#">LinkedIn</a>
+</div>
+        </div> -->
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Mubashar Abbasi</div>
+      <div style="color:var(--muted)">Built with Flutter skills — UI • API • Firebase</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function submitForm(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if(!name || !email || !message){
+        alert('Please fill all fields');
+        return;
+      }
+      // In production you would send this to an endpoint. For now open mail client
+      const subject = encodeURIComponent('Portfolio Contact from ' + name);
+      const body = encodeURIComponent(message + '\n\nFrom: ' + name + ' <' + email + '>');
+      window.location.href = 'mailto:mubasharabbasi577@gmail.com?subject=' + subject + '&body=' + body;
+    }
+  </script>
+</body>
+</html>
